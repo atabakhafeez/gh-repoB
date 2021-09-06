@@ -14,4 +14,9 @@ jobs:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+          RUN_NUMBER: ${{ github.run_number }}
+          PREV_RUN_NUMBER: ${{ github.run_number }} - 1
+        run: |
+          echo "$GITHUB_CONTEXT"
+          echo "$RUN_NUMBER"
+          echo "$PREV_RUN_NUMBER"
