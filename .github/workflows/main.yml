@@ -2,6 +2,8 @@ name: repoBworkflow
 on:
   repository_dispatch:
     types: [RepoAevent]
+  push:
+
 jobs:
   repoBjobs:
     runs-on: [ubuntu-latest]
@@ -9,3 +11,7 @@ jobs:
       - name: testB
         run: |
           echo event triggered.
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
