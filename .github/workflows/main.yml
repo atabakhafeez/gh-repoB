@@ -16,6 +16,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           RUN_NUMBER: ${{ github.run_number }}
         run: |
-          echo "$GITHUB_CONTEXT"
+          # echo "$GITHUB_CONTEXT"
           echo "$RUN_NUMBER"
           expr $RUN_NUMBER - 1
+          echo $(expr $RUN_NUMBER - 1)
